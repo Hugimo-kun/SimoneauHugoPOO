@@ -2,20 +2,25 @@
 
 namespace Src\Controller;
 
+use Src\Manager\MotoManager;
 
 class MotoController
 {
     // Route: /moto
     public function getAll()
     {
+        $mManager = new MotoManager();
+        $motos = $mManager->findAll();
         //Appel de template
-        include(__DIR__ . "/../../Templates/moto/index.php");
+        include (__DIR__ . "/../../Templates/moto/liste.php");
     }
 
     // Route: /moto/$id
     public function getById($id)
     {
         echo "ROUTE: /moto/$id   (getById)";
+        $mManager = new MotoManager();
+        $motos = $mManager->findById($id);
     }
 
     // Route: /moto/$type
