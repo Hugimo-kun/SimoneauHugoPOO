@@ -9,7 +9,7 @@ class Router
 
     private string $uri;
 
-    const string BASE_PATH = '/index.php/';
+    const BASE_PATH = '/index.php/';
 
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Router
     private function getRoute(array $segments)
     {
         $mainRoute = !empty($segments[0]) ? $segments[0] : null;
-        $subRoute =  !empty($segments[1]) ? $segments[1] : null;
+        $subRoute = !empty($segments[1]) ? $segments[1] : null;
         switch ($mainRoute) {
 
             case 'moto':
@@ -43,7 +43,7 @@ class Router
 
                             $motoController->edit($segments[2]);
                         } else {
-                            echo "ROUTE: /pizza/edit/ Bad Request: Missing ID";
+                            echo "ROUTE: /moto/edit/ Bad Request: Missing ID";
                         }
 
                         break;
@@ -61,7 +61,7 @@ class Router
                         break;
 
                     case null:
-                        // pizza/
+                        // moto/
                         // Route pour récupérer tous les services
                         $motoController->getAll();
 
