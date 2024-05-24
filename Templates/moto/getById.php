@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <nav>
-        <a href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <a class="text-white text-decoration-none" href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
     </nav>
     <div>
         <h1 class="text-center"><?= $moto->getModel() ?></h1>

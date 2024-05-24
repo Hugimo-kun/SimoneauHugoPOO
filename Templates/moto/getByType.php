@@ -17,12 +17,27 @@
 </head>
 
 <body>
-    <nav>
-        <a href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <a class="text-white text-decoration-none" href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
     </nav>
-    <h1 class="text-center"><?= $moto->getType() ?></h1>
+    <h1 class="text-center">Type : <?= $title ?></h1>
     <?php
-    dump($moto);
+    foreach ($motos as $moto) {
+        ?>
+        <a class="d-flex justify-content-center m-2 border border-2 border-secondary rounded text-decoration-none"
+            href="http://localhost/SimoneauHugoPOO/index.php/moto/<?= $moto->getId() ?>">
+            <div class="text-decoration-none text-dark w-50">
+                <div class="d-flex justify-content-center">
+                    <img src="<?= $moto->getImage() ?>" class="img-fluid" alt="<?= $moto->getModel() ?>">
+                </div>
+                <p class="text-center">Model : <?= $moto->getModel() ?></p>
+                <p class="text-center">Marque : <?= $moto->getBrand() ?></p>
+                <p class="text-center">Type : <?= $moto->getType() ?></p>
+                <p class="text-center">Prix : <?= $moto->getPrice() ?>€</p>
+            </div>
+        </a>
+        <?php
+    }
     ?>
 
 

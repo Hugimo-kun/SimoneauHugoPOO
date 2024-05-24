@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <nav>
-        <a href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <a class="text-white text-decoration-none" href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
     </nav>
     <div>
         <h1 class="text-center"><?= $moto->getModel() ?></h1>
@@ -52,7 +52,7 @@
             <input type="text" name="price" id="price" placeholder="50€..." value="<?= $moto->getPrice() ?>" required>
             <div>
                 <a class="btn btn-danger m-2" href="http://localhost/SimoneauHugoPOO/index.php/moto">Annuler</a>
-                <input type="submit" value="Ajouter" class="btn btn-success m-2">
+                <input type="submit" value="Modifier" class="btn btn-success m-2">
             </div>
         </form>
     </div>

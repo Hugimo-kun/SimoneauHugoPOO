@@ -64,6 +64,7 @@ class MotoManager extends DatabaseManager
             $response->execute(
                 [
                     ':id' => $moto->getId(),
+                    ':model' => $moto->getModel(),
                     ':brand' => $moto->getBrand(),
                     ':type' => $moto->getType(),
                     ':price' => $moto->getPrice(),
@@ -89,13 +90,17 @@ class MotoManager extends DatabaseManager
     {
         $query = $this->getConnection()->prepare("SELECT * FROM moto WHERE type = :type");
         $query->execute([":type" => $type]);
+        $results = $query->fetchAll();
+        $motos = [];
 
-        $res = $query->fetch();
-
-        if ($res === false) {
-            return $res;
+        foreach ($results as $result) {
+            $motos[] = Moto::fromArray($result);
         }
 
-        return Moto::fromArray($res);
+        if ($results != false) {
+            return $motos;
+        } else {
+            return false;
+        }
     }
 }

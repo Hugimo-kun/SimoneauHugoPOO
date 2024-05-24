@@ -40,11 +40,12 @@ class MotoController
     public function getByType($type)
     {
         //echo "ROUTE: /moto/$type   (getByType)";
-        $moto = $this->motoManager->findByType($type);
+        $title = $type;
+        $motos = $this->motoManager->findByType($type);
 
-        if ($moto) {
+        if ($motos) {
             include (__DIR__ . "/../../Templates/moto/getByType.php");
-            return $moto;
+            return $motos;
         } else {
             echo "<p>Ce type de moto n'existe pas</p>";
             echo "<a href='http://localhost/SimoneauHugoPOO/index.php/moto'>Revenir à l'acceuil</a>";
@@ -73,8 +74,6 @@ class MotoController
             } else {
                 echo ("Parametre(s) manquant(s)");
             }
-        } else {
-            echo ("Methode incorrecte");
         }
 
         //Afficher formulaire
