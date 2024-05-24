@@ -4,8 +4,7 @@ namespace Src\Manager;
 
 use Src\Entity\Moto;
 use Exception;
-
-
+use PDOException;
 
 class MotoManager extends DatabaseManager
 {
@@ -84,5 +83,19 @@ class MotoManager extends DatabaseManager
         $query->execute([
             ':id' => $id
         ]);
+    }
+
+    public function findByType(string $type)
+    {
+        $query = $this->getConnection()->prepare("SELECT * FROM moto WHERE type = :type");
+        $query->execute([":type" => $type]);
+
+        $res = $query->fetch();
+
+        if ($res === false) {
+            return $res;
+        }
+
+        return Moto::fromArray($res);
     }
 }

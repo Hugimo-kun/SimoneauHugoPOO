@@ -17,22 +17,26 @@
 </head>
 
 <body>
+    <nav>
+        <a href="http://localhost/SimoneauHugoPOO/index.php/moto">Accueil</a>
+    </nav>
     <h1 class="text-center">Toute les motos</h1>
     <?php
 
     foreach ($motos as $moto) {
         ?>
-        <!-- Les div ne sont pas de la même taille, je galère encore avec Bootstrap :') -->
-        <div class="d-flex justify-content-center m-2 border border-2 border-secondary rounded">
-            <div class="text-decoration-none text-dark">
+        <a class="d-flex justify-content-center m-2 border border-2 border-secondary rounded text-decoration-none"
+            href="http://localhost/SimoneauHugoPOO/index.php/moto/<?= $moto->getId() ?>">
+            <div class="text-decoration-none text-dark w-50">
                 <div class="d-flex justify-content-center">
-                    <img src="<?= $moto->getImage() ?>" class="w-50" alt="<?= $moto->getModel() ?>">
+                    <img src="<?= $moto->getImage() ?>" class="img-fluid" alt="<?= $moto->getModel() ?>">
                 </div>
                 <p class="text-center">Model : <?= $moto->getModel() ?></p>
                 <p class="text-center">Marque : <?= $moto->getBrand() ?></p>
-                <p class="text-center">Prix : <?= $moto->getPrice() ?></p>
+                <p class="text-center">Type : <?= $moto->getType() ?></p>
+                <p class="text-center">Prix : <?= $moto->getPrice() ?>€</p>
             </div>
-        </div>
+        </a>
         <?php
     }
 
